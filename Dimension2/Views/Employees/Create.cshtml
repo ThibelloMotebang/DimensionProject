@@ -1,0 +1,207 @@
+﻿@model Dimension2.Models.Employee
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Employee</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="EmployeeNumber" />
+            <div class="form-group">
+                <label asp-for="Emp.Email" class="control-label"></label>
+                <input asp-for="Emp.Email" class="form-control" />
+                <span asp-validation-for="Emp.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Emp.Age" class="control-label"></label>
+                <input asp-for="Emp.Age" class="form-control" />
+                <span asp-validation-for="Emp.Age" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Emp.Gender" class="control-label"></label>
+                <select asp-for="Emp.Gender" class="custom-select" asp-items="ViewBag.Gender">
+                    <option value="">Choose Gender</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Job.Department" class="control-label"></label>
+                <select asp-for="Job.Department" class="custom-select" asp-items="ViewBag.Department">
+                    <option value="">Choose Department</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Job.JobRole" class="control-label"></label>
+                <select asp-for="Job.JobRole" class="custom-select" asp-items="ViewBag.JobRole">
+                    <option value="">Choose Job Role</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Job.JobLevel" class="control-label"></label>
+                <input asp-for="Job.JobLevel" class="form-control" />
+                <span asp-validation-for="Job.JobLevel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmpHistory.YearsAtCompany" class="control-label"></label>
+                <input asp-for="EmpHistory.YearsAtCompany" class="form-control" />
+                <span asp-validation-for="EmpHistory.YearsAtCompany" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label asp-for="Emp.Attrition" class="form-check-label">
+                    <input class="form-check-input" asp-for="Emp.Attrition" /> @Html.DisplayNameFor(model => model.Emp.Attrition)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Job.BusinessTravel" class="control-label"></label>
+                <select asp-for="Job.BusinessTravel" class="custom-select" asp-items="ViewBag.BusinessTravel">
+                    <option value="">Choose Travel Frequency</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="MonthlyIncome.DailyRate" class="control-label"></label>
+                <input asp-for="MonthlyIncome.DailyRate" class="form-control" />
+                <span asp-validation-for="MonthlyIncome.DailyRate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Emp.DistanceFromHome" class="control-label"></label>
+                <input asp-for="Emp.DistanceFromHome" class="form-control" />
+                <span asp-validation-for="Emp.DistanceFromHome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Edu.Education" class="control-label"></label>
+                <input asp-for="Edu.Education" class="form-control" />
+                <span asp-validation-for="Edu.Education" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Edu.EducationField" class="control-label"></label>
+                <select asp-for="Edu.EducationField" class="custom-select" asp-items="ViewBag.EducationField">
+                    <option value="">Choose Education Field</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Job.EmployeeCount" class="control-label"></label>
+                <input asp-for="Job.EmployeeCount" class="form-control" />
+                <span asp-validation-for="Job.EmployeeCount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Satisfactions.EnvironmentSatisfaction" class="control-label"></label>
+                <input asp-for="Satisfactions.EnvironmentSatisfaction" class="form-control" />
+                <span asp-validation-for="Satisfactions.EnvironmentSatisfaction" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MonthlyIncome.HourlyRate" class="control-label"></label>
+                <input asp-for="MonthlyIncome.HourlyRate" class="form-control" />
+                <span asp-validation-for="MonthlyIncome.HourlyRate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmpPerformance.JobInvolvement" class="control-label"></label>
+                <input asp-for="EmpPerformance.JobInvolvement" class="form-control" />
+                <span asp-validation-for="EmpPerformance.JobInvolvement" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Satisfactions.JobSatisfaction" class="control-label"></label>
+                <input asp-for="Satisfactions.JobSatisfaction" class="form-control" />
+                <span asp-validation-for="Satisfactions.JobSatisfaction" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Emp.MaritalStatus" class="control-label"></label>
+                <select asp-for="Emp.MaritalStatus" class="custom-select" asp-items="ViewBag.MaritalStatus">
+                    <option value="">Choose Marital Status</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="MonthlyIncome.MonthlyIncome" class="control-label"></label>
+                <input asp-for="MonthlyIncome.MonthlyIncome" class="form-control" />
+                <span asp-validation-for="MonthlyIncome.MonthlyIncome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MonthlyIncome.MonthlyRate" class="control-label"></label>
+                <input asp-for="MonthlyIncome.MonthlyRate" class="form-control" />
+                <span asp-validation-for="MonthlyIncome.MonthlyRate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmpHistory.NumCompaniesWorked" class="control-label"></label>
+                <input asp-for="EmpHistory.NumCompaniesWorked" class="form-control" />
+                <span asp-validation-for="EmpHistory.NumCompaniesWorked" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label asp-for="Emp.Over18" class="form-check-label">
+                    <input class="form-check-input" asp-for="Emp.Over18" /> @Html.DisplayNameFor(model => model.Emp.Over18)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label asp-for="MonthlyIncome.OverTime" class="form-check-label">
+                    <input class="form-check-input" asp-for="MonthlyIncome.OverTime" /> @Html.DisplayNameFor(model => model.MonthlyIncome.OverTime)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="MonthlyIncome.PercentSalaryHike" class="control-label"></label>
+                <input asp-for="MonthlyIncome.PercentSalaryHike" class="form-control" />
+                <span asp-validation-for="MonthlyIncome.PercentSalaryHike" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmpPerformance.PerformanceRating" class="control-label"></label>
+                <input asp-for="EmpPerformance.PerformanceRating" class="form-control" />
+                <span asp-validation-for="EmpPerformance.PerformanceRating" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Satisfactions.RelationshipSatisfaction" class="control-label"></label>
+                <input asp-for="Satisfactions.RelationshipSatisfaction" class="form-control" />
+                <span asp-validation-for="Satisfactions.RelationshipSatisfaction" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Job.StandardHours" class="control-label"></label>
+                <input asp-for="Job.StandardHours" class="form-control" />
+                <span asp-validation-for="Job.StandardHours" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Job.StockOptionLevel" class="control-label"></label>
+                <input asp-for="Job.StockOptionLevel" class="form-control" />
+                <span asp-validation-for="Job.StockOptionLevel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmpHistory.TotalWorkingYears" class="control-label"></label>
+                <input asp-for="EmpHistory.TotalWorkingYears" class="form-control" />
+                <span asp-validation-for="EmpHistory.TotalWorkingYears" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmpHistory.TrainingTimesLastYear" class="control-label"></label>
+                <input asp-for="EmpHistory.TrainingTimesLastYear" class="form-control" />
+                <span asp-validation-for="EmpHistory.TrainingTimesLastYear" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmpPerformance.WorkLifeBalance" class="control-label"></label>
+                <input asp-for="EmpPerformance.WorkLifeBalance" class="form-control" />
+                <span asp-validation-for="EmpPerformance.WorkLifeBalance" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmpHistory.YearsInCurrentRole" class="control-label"></label>
+                <input asp-for="EmpHistory.YearsInCurrentRole" class="form-control" />
+                <span asp-validation-for="EmpHistory.YearsInCurrentRole" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmpHistory.YearsSinceLastPromotion" class="control-label"></label>
+                <input asp-for="EmpHistory.YearsSinceLastPromotion" class="form-control" />
+                <span asp-validation-for="EmpHistory.YearsSinceLastPromotion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmpHistory.YearsWithCurrManager" class="control-label"></label>
+                <input asp-for="EmpHistory.YearsWithCurrManager" class="form-control" />
+                <span asp-validation-for="EmpHistory.YearsWithCurrManager" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="EmployeeNumber" type="submit" value="Save" class="btn btn-success" /> |
+                <a asp-action="Index" class="btn btn-info">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

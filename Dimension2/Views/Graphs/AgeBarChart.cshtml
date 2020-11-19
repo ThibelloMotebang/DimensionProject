@@ -1,0 +1,65 @@
+﻿<div class="column">
+    <div class="col-xs-1 center-block">
+        <center>
+            <div style="width: 70%">
+                <canvas id="AgeBarCanvas"></canvas>
+            </div>
+        </center>
+    </div>
+</div>
+
+<script>
+    var ctx = document.getElementById('AgeBarCanvas').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'horizontalBar',
+        data: {
+
+            datasets: [{
+                data: [
+                    @ViewBag.AGE.Item1,
+                    @ViewBag.AGE.Item2,
+                    @ViewBag.AGE.Item3,
+                    @ViewBag.AGE.Item4,
+                    @ViewBag.AGE.Item5,
+                    @ViewBag.AGE.Item6
+                ],
+                label: 'Total Employees',
+                backgroundColor: "rgba(38, 247, 146, 0.8)",
+                borderColor: "rgba(5, 148, 79, 1)",
+                borderWidth: 1
+            }],
+            labels: ['Under 20s', '20s', '30s', '40s', '50s', 'Over 60']
+        },
+        options: {
+            elements: {
+                rectangle: {
+                    borderWidth: 2,
+                }
+            },
+            responsive: true,
+            legend: {
+                position: 'right',
+            },
+            title: {
+                display: true,
+                text: 'Employee Age Range',
+                fontSize: 25
+            },
+            legend: {
+                labels: {
+                    fontSize: 18
+                }
+            },
+            layout: {
+                padding: {
+                    left: 10,
+                    right: 0,
+                    top: 0,
+                    bottom: 25
+                }
+            }
+        }
+    });
+    myChart.options.scales.yAxes[0].ticks.fontSize = 15;
+    myChart.options.scales.xAxes[0].ticks.fontSize = 15;
+</script>

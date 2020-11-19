@@ -1,0 +1,99 @@
+﻿<div class="column">
+    <div class="col-xs-1 center-block">
+        <center>
+            <div style="width: 70%">
+                <canvas id="canvas"></canvas>
+            </div>
+        </center>
+    </div>
+</div>
+
+<script>
+    var ctx = document.getElementById('canvas').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['0 >= 2', '2 >= 4', '4 >= 6', '6 >= 8', ' >= 10'],
+            datasets: [{
+                data: [
+                    @ViewBag.COMPYEARS.Item1,
+                    @ViewBag.COMPYEARS.Item2,
+                    @ViewBag.COMPYEARS.Item3,
+                    @ViewBag.COMPYEARS.Item4,
+                    @ViewBag.COMPYEARS.Item5
+                ],
+                label: 'Years at Company',
+                borderColor: "#1F3F51",
+                backgroundColor: "#1F3F51",
+                fill: false,
+                yAxisID: 'y-axis-1',
+                yAxisID: 'y-axis-2'
+            },
+                {
+                    data: [
+                        @ViewBag.CURROLE.Item1,
+                        @ViewBag.CURROLE.Item2,
+                        @ViewBag.CURROLE.Item3,
+                        @ViewBag.CURROLE.Item4,
+                        @ViewBag.CURROLE.Item5
+                    ],
+                    label: 'Years in Current Role',
+                    borderColor: "#A9CDEF",
+                    backgroundColor: "#A9CDEF",
+                    fill: false,
+                }, {
+                    data: [
+                        @ViewBag.PROM.Item1,
+                        @ViewBag.PROM.Item2,
+                        @ViewBag.PROM.Item3,
+                        @ViewBag.PROM.Item4,
+                        @ViewBag.PROM.Item5
+                    ],
+                    label: 'Years Since Promotion',
+                    borderColor: "#2F8EC2",
+                    backgroundColor: "#2F8EC2",
+                    fill: false
+                }, {
+                    data: [
+                        @ViewBag.CURMAN.Item1,
+                        @ViewBag.CURMAN.Item2,
+                        @ViewBag.CURMAN.Item3,
+                        @ViewBag.CURMAN.Item4,
+                        @ViewBag.CURMAN.Item5
+                    ],
+                    label: 'Years wuth Current Manager',
+                    borderColor: "#1F6389",
+                    backgroundColor: "#1F6389",
+                    fill: false
+                }]
+        },
+        options: {
+            responsive: true,
+            hoverMode: 'index',
+            stacked: false,
+            title: {
+                display: true,
+                fontSize: 25,
+                text: 'Employee Company History'
+            },
+            scales: {
+                yAxes: [{
+                    type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
+                    display: true,
+                    position: 'left',
+                    id: 'y-axis-1'
+                },
+                    {
+                        type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
+                        display: true,
+                        position: 'right',
+                        id: 'y-axis-2',
+                            //grid line settings
+                        gridLines: {
+                            drawOnChartArea: false, // only want the grid lines for one axis to show up
+                        },
+                }]
+            }
+        }
+    });
+</script>
