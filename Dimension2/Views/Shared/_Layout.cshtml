@@ -29,19 +29,23 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
 
-                       
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Role" asp-action="Index">Role</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Employees" asp-action="Index">Employee Data</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="DataSets" asp-action="Index">All Data</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Graphs" asp-action="TimeGraphs">Graph Data</a>
-                        </li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Role" asp-action="Index">Role</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Employees" asp-action="Index">Employee Data</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="DataSets" asp-action="Index">All Data</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Graphs" asp-action="TimeGraphs">Graph Data</a>
+                            </li>
+                        }
+
+
 
                     </ul>
                 </div>
