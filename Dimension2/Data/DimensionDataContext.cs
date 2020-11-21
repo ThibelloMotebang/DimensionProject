@@ -35,7 +35,7 @@ namespace Dimension2.Data
         public virtual DbSet<JobInformation> JobInformation { get; set; }
         public virtual DbSet<Satisfactions> Satisfactions { get; set; }
 
-       
+
 
         #region SQL queries for Data
         //Get the details of each employee by id

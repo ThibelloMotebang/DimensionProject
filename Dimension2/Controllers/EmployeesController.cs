@@ -26,7 +26,7 @@ namespace Dimension2.Controllers
         }
 
         // GET: Employees
-        [Authorize(Policy = "readonlypolicy")]
+        [Authorize(Roles = "Manager, Employee")]
         public async Task<IActionResult> Index(string sortOrder, string currentFilter, string searchString, int? pageNumber)
         {
             #region Column Filters
@@ -104,14 +104,14 @@ namespace Dimension2.Controllers
         }
 
         // GET: Employees/Details/5
-        [Authorize(Policy = "readonlypolicy")]
+        [Authorize(Roles = "Manager, Employee")]
         public async Task<IActionResult> Details(int? id)
         {
             return View(await _context.GetbyIdAsync(id));
         }
 
         // GET: Employees/Create
-        [Authorize(Policy = "writepolicy")]
+        [Authorize(Roles = "Manager, Employee")]
         public IActionResult Create()
         {
             ViewData["EducationField"] = new SelectList(_context.EmployeeEducation.Select(x => x.EducationField).Distinct());
@@ -127,14 +127,14 @@ namespace Dimension2.Controllers
         // POST: Employees/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Policy = "writepolicy")]
+        [Authorize(Roles = "Manager, Employee")]
         public async Task<IActionResult> Create(Employee employee)
         {
             return RedirectToAction("Index", await _context.CreateAsync(employee));
         }
 
         // GET: Employees/Edit/5
-        [Authorize(Policy = "writepolicy")]
+        [Authorize(Roles = "Manager, Employee")]
         public async Task<IActionResult> Edit(int? id)
         {
             var employee = await _context.Employee
@@ -165,7 +165,7 @@ namespace Dimension2.Controllers
         // POST: Employees/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Policy = "writepolicy")]
+        [Authorize(Roles = "Manager, Employee")]
         public async Task<IActionResult> Edit(int? id, Employee employee)
         {
             if (ModelState.IsValid)
@@ -177,7 +177,7 @@ namespace Dimension2.Controllers
         }
 
         // GET: Employees/Delete/5
-        [Authorize(Policy = "writepolicy")]
+        [Authorize(Roles = "Manager, Employee")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -205,7 +205,7 @@ namespace Dimension2.Controllers
         // POST: Employees/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        [Authorize(Policy = "writepolicy")]
+        [Authorize(Roles = "Manager, Employee")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             return RedirectToAction("Index", await _context.DeleteAsync(id));
